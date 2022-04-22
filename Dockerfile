@@ -1,3 +1,9 @@
-FROM tomcat:latest
-# Dummy text to test 
-COPY target/newapp.war /usr/local/tomcat/webapps/
+FROM php:7.0-apache
+
+COPY index.html /var/www
+
+EXPOSE 80
+
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
