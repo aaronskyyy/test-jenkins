@@ -1,9 +1,4 @@
-FROM php:7.0-apache
-
+FROM tomcat:8
+# Take the war and copy to webapps of tomcat
 COPY index.html /var/www
 
-EXPOSE 80
-
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
-
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
